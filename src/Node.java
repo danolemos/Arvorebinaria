@@ -1,6 +1,6 @@
-public class Node {
+public class Node<T> {
     public Node<T> rightchild;
     public Node<T> leftchild;
     public Node<T> father;
-    public str valor;
+    public T valor;
 }
