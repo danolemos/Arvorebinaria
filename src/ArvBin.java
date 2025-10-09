@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class ArvBin<T>{
+public class ArvBin<T extends Comparable<T>>{
 
     public Node<T> root;
     private Comparator<T> comparator;
@@ -10,16 +10,25 @@ public class ArvBin<T>{
      * @param novoValor - Elemento do Tipo T a ser armazenado na árvore.
      *
      */
-    public void adicionar(T novoValor){
-        Node node = new Node(); // cria um novo nó
-        node.valor = novoValor; // define o valor desse novo nó
+    public void adicionar(T novoValor) {
+        root = adicionarRecursivo(root, novoValor);
+    }
 
-        int cmp = comparator.compare((T) node.father.rightchild, novoValor);
+    public Node<T> adicionarRecursivo(Node<T> atual, T novoValor){
+        if (atual == null){
+            return new Node<>(novoValor);
+        }
+
+        int cmp = comparator.compare((T) atual, novoValor);
 
         // escanção dos nós:
-        if (!(node.father.rightchild  novoValor)){
-
+        if (cmp < 0){
+            atual.leftchild = adicionarRecursivo(atual.leftchild, novoValor);
         }
+        else{
+            atual.rightchild = adicionarRecursivo(atual.rightchild, novoValor);
+        }
+        return atual;
     }
 
     /**
@@ -28,8 +37,23 @@ public class ArvBin<T>{
      * @return caso tenha sido encontrado um elemento com o valor buscado, o mesmo será retornado. Caso contrário retorna null.
      */
     public T pesquisar(T valor){
-        return pesquisar(.father, valor);
+
+        Node atual = root;
+
+        int cmp = comparator.compare((T) atual, valor);
+
+        while (cmp != 0){
+            if (cmp < 0){
+                atual = atual.rightchild;
+            }
+            else{
+                atual = atual.leftchild;
+            }
+        }
+
+        return (T) atual;
     };
+
 
     /**
      * Método que busca por um elemento na árvore e, caso encontre, o remove da árvore e o retorna
@@ -38,7 +62,25 @@ public class ArvBin<T>{
      */
     public T remover(T valor){
 
-        return
+        Node atual = root;
+
+        int cmp = comparator.compare((T) atual, valor);
+
+        if (cmp == 0){
+            return (T) atual;
+        };
+
+        cmp = comparator.compare((T) atual, valor);
+
+        while (cmp != 0){
+            if (comparator.compare((T) atual.rightchild, valor) < 0){
+                atual = atual.rightchild;
+            }
+            else{
+                atual = atual.leftchild;
+            }
+        }
+        return (T) atual;
     };
 
     /**
@@ -46,12 +88,12 @@ public class ArvBin<T>{
      * @return Retorna a altura da árvore. Árvores só com raiz tem altura zero(0). Se raiz for nula retorne -1.
      */
     public int altura(){
+        if (root == null) {
+            return -1;
+        }
+
         Node node = new Node();
         int size = 0;
-        while boolean b = true {
-            node = node.rightchild;
-            size++;
-        };
         return size;
     };
 
@@ -60,23 +102,24 @@ public class ArvBin<T>{
      * @return Retorna a quantidade de nós da árvore
      */
     public int quantidadeNos(){
-        return
+        return 0;
     };
 
 
     /**
      * Metódo que retona o resultado do caminhamento em nível na árvore.
+     *
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em nível. A String deve iniciar com "[" e finalizar com "]"
      */
-    public String caminharEmNivel(){
-        return
-    };
+    public String caminharEmNivel() {
+        return null;
+    }
 
     /**
      * Metódo que retona o resultado do caminhamento em ordem na árvore.
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em ordem. A String deve iniciar com "[" e finalizar com "]"
      */
     public String caminharEmOrdem(){
-        return
+        return null;
     };
 }
