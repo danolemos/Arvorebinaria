@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.lang.String;
 
 public class ArvBin<T extends Comparable<T>>{
 
@@ -132,7 +133,7 @@ public class ArvBin<T extends Comparable<T>>{
     /**
      * Metódo que retona o resultado do caminhamento em nível na árvore.
      *
-     * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em nível. A String deve iniciar com "[" e finalizar com "]"
+     * @return String contendo os toString dos valores armazenados nos nós, separados por "\n". Os nós devem ser percorridos em nível. A String deve iniciar com "[" e finalizar com "]"
      */
     public String caminharEmNivel() {
         return null;
