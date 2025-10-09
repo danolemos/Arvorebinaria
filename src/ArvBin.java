@@ -87,13 +87,36 @@ public class ArvBin<T extends Comparable<T>>{
      * Método que retorna a altura da árvore
      * @return Retorna a altura da árvore. Árvores só com raiz tem altura zero(0). Se raiz for nula retorne -1.
      */
-    public int altura(){
-        if (root == null) {
-            return -1;
+    public int altura() {
+
+        /*
+        * public int altura() {
+        return altura(root);
+    }
+
+    // Recursive helper method
+    private int altura(Node node) {
+        if (node == null) {
+            return -1; // base case: empty subtree
         }
 
-        Node node = new Node();
-        int size = 0;
+        int leftHeight = altura(node.leftchild);
+        int rightHeight = altura(node.rightchild);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+        * */
+
+        int size = -1;
+
+        if (root == null) {
+            return size;
+        };
+
+        while ((root.rightchild != null) || (root.leftchild != null)) {
+            return altura() + 1;
+        };
+
         return size;
     };
 
