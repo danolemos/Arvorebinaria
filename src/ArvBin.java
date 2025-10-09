@@ -1,15 +1,24 @@
-import java.lang.String;
+import java.util.Comparator;
 
-public class ArvBin<T> {
+public class ArvBin<T>{
+
+    public Node<T> root;
+    private Comparator<T> comparator;
+
     /**
      * Método para adicionar um elemento à árvore.
      * @param novoValor - Elemento do Tipo T a ser armazenado na árvore.
      *
      */
     public void adicionar(T novoValor){
-        if (father.valor <= novoValor){
-            Node node = new Node();
-            node.valor = novoValor;
+        Node node = new Node(); // cria um novo nó
+        node.valor = novoValor; // define o valor desse novo nó
+
+        int cmp = comparator.compare((T) node.father.rightchild, novoValor);
+
+        // escanção dos nós:
+        if (!(node.father.rightchild  novoValor)){
+
         }
     }
 
@@ -19,8 +28,7 @@ public class ArvBin<T> {
      * @return caso tenha sido encontrado um elemento com o valor buscado, o mesmo será retornado. Caso contrário retorna null.
      */
     public T pesquisar(T valor){
-        
-        return;
+        return pesquisar(.father, valor);
     };
 
     /**
@@ -29,6 +37,7 @@ public class ArvBin<T> {
      * @return caso tenha sido encontrado um elemento com o valor buscado, o elemento será removido da árvore e seu valor (do tipo T) será retornado. Caso contrário retorna null.
      */
     public T remover(T valor){
+
         return
     };
 
@@ -37,7 +46,13 @@ public class ArvBin<T> {
      * @return Retorna a altura da árvore. Árvores só com raiz tem altura zero(0). Se raiz for nula retorne -1.
      */
     public int altura(){
-        return
+        Node node = new Node();
+        int size = 0;
+        while boolean b = true {
+            node = node.rightchild;
+            size++;
+        };
+        return size;
     };
 
     /**
