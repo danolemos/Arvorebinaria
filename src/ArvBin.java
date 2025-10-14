@@ -1,10 +1,12 @@
 import java.util.Comparator;
 import java.lang.String;
+import java.lang.Math;
 
 public class ArvBin<T extends Comparable<T>>{
 
     public Node<T> root;
     private Comparator<T> comparator;
+    int size = -1;
 
     /**
      * Método para adicionar um elemento à árvore.
@@ -89,36 +91,18 @@ public class ArvBin<T extends Comparable<T>>{
      * @return Retorna a altura da árvore. Árvores só com raiz tem altura zero(0). Se raiz for nula retorne -1.
      */
     public int altura() {
+        return alturaRecursivo(root);
+    };
 
-        /*
-        * public int altura() {
-        return altura(root);
-    }
-
-    // Recursive helper method
-    private int altura(Node node) {
+    public int alturaRecursivo(Node node) {
         if (node == null) {
-            return -1; // base case: empty subtree
-        }
+            return -1;
+        };
 
-        int leftHeight = altura(node.leftchild);
-        int rightHeight = altura(node.rightchild);
+        int leftHeight = alturaRecursivo(node.leftchild);
+        int rightHeight = alturaRecursivo(node.rightchild);
 
         return Math.max(leftHeight, rightHeight) + 1;
-    }
-        * */
-
-        int size = -1;
-
-        if (root == null) {
-            return size;
-        };
-
-        while ((root.rightchild != null) || (root.leftchild != null)) {
-            return altura() + 1;
-        };
-
-        return size;
     };
 
     /**
@@ -126,6 +110,7 @@ public class ArvBin<T extends Comparable<T>>{
      * @return Retorna a quantidade de nós da árvore
      */
     public int quantidadeNos(){
+
         return 0;
     };
 
@@ -143,7 +128,8 @@ public class ArvBin<T extends Comparable<T>>{
      * Metódo que retona o resultado do caminhamento em ordem na árvore.
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em ordem. A String deve iniciar com "[" e finalizar com "]"
      */
-    public String caminharEmOrdem(){
+    public String caminharEmOrdem()
+    {
         return null;
     };
 }
