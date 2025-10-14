@@ -121,15 +121,39 @@ public class ArvBin<T extends Comparable<T>>{
      * @return String contendo os toString dos valores armazenados nos nós, separados por "\n". Os nós devem ser percorridos em nível. A String deve iniciar com "[" e finalizar com "]"
      */
     public String caminharEmNivel() {
-        return null;
+        String str = new String("[");
+        str.concat((String) root.valor);
+
+        /*alg em nivel*/
+
+        str.concat("]");
+        return str;
+
+        /*queue = nuova coda
+        queue.enqueue(radice)
+
+        while queue non è vuota:
+            nodo = queue.dequeue()
+            visita(nodo)
+
+            if nodo.sinistro esiste:
+                queue.enqueue(nodo.sinistro)
+
+            if nodo.destro esiste:
+                queue.enqueue(nodo.destro)*/
     }
 
     /**
      * Metódo que retona o resultado do caminhamento em ordem na árvore.
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em ordem. A String deve iniciar com "[" e finalizar com "]"
      */
-    public String caminharEmOrdem()
-    {
-        return null;
+    public String caminharEmOrdem() {
+        String str = new String("[");
+        str.concat((String) root.valor);
+
+        /*alg em ordem*/
+
+        str.concat("]");
+        return str;
     };
 }
