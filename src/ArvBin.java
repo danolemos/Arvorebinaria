@@ -128,7 +128,8 @@ public class ArvBin<T extends Comparable<T>>{
      * Metódo que retona o resultado do caminhamento em ordem na árvore.
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em ordem. A String deve iniciar com "[" e finalizar com "]"
      */
-    public String caminharEmOrdem(){
+    public String caminharEmOrdem()
+    {
         return null;
     };
 }
