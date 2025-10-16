@@ -1,6 +1,7 @@
 import java.util.Comparator;
 import java.lang.String;
 import java.lang.Math;
+import java.util.*;
 
 public class ArvBin<T extends Comparable<T>>{
 
@@ -121,26 +122,26 @@ public class ArvBin<T extends Comparable<T>>{
      * @return String contendo os toString dos valores armazenados nos nós, separados por "\n". Os nós devem ser percorridos em nível. A String deve iniciar com "[" e finalizar com "]"
      */
     public String caminharEmNivel() {
-        String str = new String("[");
-        str.concat((String) root.valor);
+
+        LinkedList<Node> list = new LinkedList<>();
+
+        list.add(root);
+
+        int index = 0;
+
+        Node atual = list.get(index++);
+
+        String str = new String();
+
+        str = root.valor.toString();
 
         /*alg em nivel*/
+        while (index < list.size()){
+            if (atual.leftchild != null){list.add(atual.leftchild);}
+            if (atual.rightchild != null){list.add(atual.rightchild);}
+        }
 
-        str.concat("]");
-        return str;
-
-        /*queue = nuova coda
-        queue.enqueue(radice)
-
-        while queue non è vuota:
-            nodo = queue.dequeue()
-            visita(nodo)
-
-            if nodo.sinistro esiste:
-                queue.enqueue(nodo.sinistro)
-
-            if nodo.destro esiste:
-                queue.enqueue(nodo.destro)*/
+        return list.toString();
     }
 
     /**
@@ -148,12 +149,31 @@ public class ArvBin<T extends Comparable<T>>{
      * @return String contendo os toString dos valores armazenados nos nós, separados por " \n ". Os nós devem ser percorridos em ordem. A String deve iniciar com "[" e finalizar com "]"
      */
     public String caminharEmOrdem() {
-        String str = new String("[");
-        str.concat((String) root.valor);
+        LinkedList<Node> list = new LinkedList<>();
 
-        /*alg em ordem*/
+        list.add(root);
 
-        str.concat("]");
-        return str;
+        int index = 0;
+
+        Node atual = list.get(index++);
+
+        String str = new String();
+
+        str = root.valor.toString();
+
+        /*alg em nivel*/
+        while (index < list.size()){
+            return null;
+        }
+
+        return list.toString();
+    }
+
+    public void inOrderRec(Node node){
+        inOrderRec(node.leftchild);
+    }
+
+    public String toString(){
+       return String.format("\n");
     };
 }
